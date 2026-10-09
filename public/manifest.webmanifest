@@ -1,0 +1,17 @@
+{
+  "name": "আমল — দৈনিক তিলাওয়াত",
+  "short_name": "আমল",
+  "description": "দৈনিক কুরআন তিলাওয়াত, জিকির, জুমা ও সদকার সঙ্গী",
+  "id": "/",
+  "start_url": "/#/today",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F7F4EC",
+  "theme_color": "#0B4F35",
+  "lang": "bn",
+  "icons": [
+    { "src": "/icons/app-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/app-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

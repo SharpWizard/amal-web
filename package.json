@@ -1,0 +1,20 @@
+{
+  "name": "amal-web",
+  "version": "2.0.0",
+  "description": "আমল — দৈনিক কুরআন তিলাওয়াত ও আমলের সঙ্গী (ওয়েব/PWA)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "express": "^5.3.0",
+    "web-push": "^3.6.7"
+  }
+}
