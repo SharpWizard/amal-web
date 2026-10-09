@@ -2,22 +2,33 @@
 
 Android অ্যাপ "আমল" এর Node.js ওয়েব সংস্করণ। ব্রাউজারে চলে এবং iPhone ও Android-এ হোম স্ক্রিনে যোগ করে অ্যাপের মতো ব্যবহার করা যায়।
 
-## চালানো
+## লোকালি চালানো
+
+ডাটাবেস লাগবে — Postgres (যেমন Neon)। `.env` বা শেলে সেট করুন:
 
 ```bash
+export POSTGRES_URL="postgres://user:pass@host/db"
 npm install
 npm start          # http://localhost:3000
+npm test           # API পরীক্ষা (সার্ভার চালু থাকা অবস্থায়, BASE=http://localhost:3000)
 ```
 
-পোর্ট বদলাতে: `PORT=8080 npm start`। ডাটা `data/amal.db`-তে থাকে (SQLite, Node-এর বিল্ট-ইন)।
-টাইমজোন ডিফল্ট `Asia/Dhaka`; ক্লায়েন্ট পাঠানো টাইমজোন অনুযায়ী চলে।
+টেস্টে ডাটাবেস ছাড়াই চালাতে: `AMAL_TEST_DB=pglite npm start` (প্রক্রিয়ার ভেতরের Postgres, ডাটা সেভ হয় না)।
+
+## Vercel-এ ডেপ্লয়
+
+1. Vercel প্রজেক্টে একটি Postgres ইন্টিগ্রেশন যোগ করুন (Marketplace → Neon)। এটি `POSTGRES_URL` সেট করে।
+2. Environment Variables-এ `CRON_SECRET` যোগ করুন (যেকোনো লম্বা গোপন স্ট্রিং)।
+3. `vercel --prod` বা GitHub-এ পুশ করলে স্বয়ংক্রিয় ডেপ্লয়।
+
+**গুরুত্বপূর্ণ:** `vercel.json`-এর cron প্রতি মিনিটে চলে। Vercel-এর Hobby প্ল্যানে cron দিনে একবারের বেশি চলে না — প্রতি মিনিটের অনুস্মারকের জন্য Pro প্ল্যান লাগবে।
 
 ## ফোনে অ্যাপ হিসেবে ব্যবহার
 
 - **Android (Chrome):** মেনু → "Install app"
 - **iPhone (Safari):** Share → "Add to Home Screen"। ব্যাকগ্রাউন্ড নোটিফিকেশনের জন্য হোম স্ক্রিন থেকে খুলতে হবে (iOS 16.4+)।
 
-ফোন থেকে খুলতে হলে সার্ভারটি HTTPS-সহ কোথাও হোস্ট করতে হবে (নোটিফিকেশনের জন্য HTTPS বাধ্যতামূলক; `localhost` বাদে)।
+নোটিফিকেশনের জন্য HTTPS বাধ্যতামূলক (Vercel-এ স্বয়ংক্রিয়)।
 
 ## ফিচার
 
@@ -32,15 +43,19 @@ npm start          # http://localhost:3000
 ## কাঠামো
 
 ```
-server.js        Express রাউট (API + স্ট্যাটিক ফাইল)
-lib/db.js        SQLite স্কিমা ও কোয়েরি
+app.js           Express রাউট (সব API)
+server.js        লোকাল চালানো + ৩০ সেকেন্ড টাইমার
+api/index.js     Vercel সার্ভারলেস এন্ট্রি
+vercel.json      রাউটিং, স্ট্যাটিক আউটপুট (public), cron
+lib/db.js        Postgres স্কিমা ও কোয়েরি (PGlite টেস্ট)
 lib/logic.js     সেশন, স্ট্রিক, হিজরি তারিখ, জুমা (Android-এর নিয়ম)
-lib/push.js      VAPID কী, নোটিফিকেশন পাঠানো, ৩০ সেকেন্ডের রিমাইন্ডার স্ক্যানার
+lib/push.js      VAPID কী, নোটিফিকেশন পাঠানো, রিমাইন্ডার টিক
 data/surahs.json SurahData.kt থেকে রূপান্তরিত সূরা/দোয়া
-public/          PWA: index.html, css/app.css, js/app.js, sw.js, manifest
+public/          PWA: index.html, css, js, sw.js, manifest
+scripts/         API পরীক্ষা
 ```
 
 ## নোট
 
-- এটি একজন ব্যবহারকারীর জন্য তৈরি; কোনো লগইন নেই। ইন্টারনেটে হোস্ট করলে সামনে অ্যাক্সেস কন্ট্রোল যোগ করুন।
+- এটি একজন ব্যবহারকারীর জন্য তৈরি; কোনো লগইন নেই। সার্বজনীনভাবে হোস্ট করলে অ্যাক্সেস কন্ট্রোল যোগ করুন।
 - Web Push-এর জন্য `AMAL_CONTACT=mailto:you@example.com` সেট করা ভালো।
