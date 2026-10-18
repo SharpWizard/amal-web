@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0B4F35">
+  <meta name="description" content="আমল — মাসনূন দোয়া সংকলন। আরবি, উচ্চারণ, অর্থ ও ফযীলতসহ।">
+  <title>আমল · দোয়া</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --emerald-deep:#0B4F35; --emerald:#157A50; --emerald-lift:#12603F;
+      --emerald-shade:#093D2A; --emerald-night:#07331F;
+      --cream:#F3E7CB; --cream-bright:#FFFDF7; --cream-muted:#C9BE9C; --cream-soft:#D9CFAE;
+      --ink:#14231C; --ink-body:#3C463F; --gold:#C9A24B;
+      --card:#FFFFFF; --page:#F2EEE2;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Hind Siliguri',system-ui,sans-serif;
+      color:var(--ink-body); background:var(--page);
+      line-height:1.65; -webkit-font-smoothing:antialiased;
+      padding-bottom:48px;
+    }
+    .wrap{max-width:720px;margin:0 auto;padding:0 16px}
+
+    /* header */
+    .hero{
+      background:linear-gradient(165deg,var(--emerald-lift) 0%,var(--emerald-deep) 60%,var(--emerald-shade) 100%);
+      color:var(--cream); padding:34px 0 30px; text-align:center;
+      border-bottom-left-radius:26px;border-bottom-right-radius:26px;
+    }
+    .hero .kicker{font-size:12px;letter-spacing:3px;font-weight:600;color:var(--cream-muted);text-transform:uppercase}
+    .hero h1{font-size:40px;font-weight:700;color:var(--cream-bright);margin:4px 0 6px}
+    .hero p{font-size:14px;color:var(--cream-muted);max-width:420px;margin:0 auto}
+
+    /* table of contents */
+    .toc{margin:20px 0 4px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    .chip{
+      font-size:13px;font-weight:500;text-decoration:none;color:var(--emerald-deep);
+      background:#fff;border:1px solid var(--cream-soft);padding:7px 13px;border-radius:999px;
+      transition:.15s;
+    }
+    .chip:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+
+    /* cards */
+    .card{
+      background:var(--card);border-radius:20px;padding:22px 20px 20px;margin:18px 0;
+      box-shadow:0 1px 2px rgba(11,79,53,.05),0 8px 26px rgba(11,79,53,.07);
+      border:1px solid #ece6d6;
+    }
+    .card-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+    .num{
+      flex:none;width:30px;height:30px;border-radius:9px;background:var(--emerald);color:#fff;
+      font-weight:700;font-size:15px;display:grid;place-items:center;margin-top:2px;
+    }
+    .card-titles{flex:1;min-width:0}
+    .card-title{font-size:19px;font-weight:700;color:var(--ink);line-height:1.3}
+    .card-sub{font-size:12.5px;color:var(--cream-muted);margin-top:2px}
+    .card-ar{font-family:'Amiri',serif;font-size:19px;color:var(--emerald);white-space:nowrap}
+
+    .bismillah{font-family:'Amiri',serif;font-size:21px;text-align:center;color:var(--emerald-deep);margin:4px 0 14px;direction:rtl}
+
+    .arabic{
+      font-family:'Amiri',serif;font-size:30px;line-height:2.1;text-align:right;
+      color:var(--ink);margin:6px 0 18px;padding-bottom:16px;border-bottom:1px dashed var(--cream-soft);
+    }
+
+    .block{margin:14px 0}
+    .label{
+      display:inline-block;font-size:11px;letter-spacing:1.5px;font-weight:600;text-transform:uppercase;
+      color:var(--gold);margin-bottom:3px;
+    }
+    .ucchaaron{font-size:16px;color:var(--emerald-deep);font-weight:500}
+    .ortho{font-size:16px;color:var(--ink-body)}
+    .beyakkha{font-size:14.5px;color:var(--ink-soft,#4A554E)}
+
+    .fazilat{
+      margin-top:16px;background:var(--cream);border-radius:14px;padding:14px 16px;
+      border:1px solid var(--cream-soft);
+    }
+    .fazilat p{font-size:14px;color:#5a5236}
+
+    footer{text-align:center;margin-top:30px;font-size:12.5px;color:var(--cream-muted)}
+    footer b{color:var(--emerald-deep)}
+    .top{
+      display:inline-block;margin-top:10px;font-size:13px;color:var(--emerald);
+      text-decoration:none;font-weight:600;
+    }
+
+    @media (max-width:520px){
+      .hero h1{font-size:34px}
+      .arabic{font-size:26px;line-height:1.95}
+      .card-ar{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="wrap">
+      <div class="kicker">আমল</div>
+      <h1>দোয়া</h1>
+      <p>বিপদ, দুশ্চিন্তা, রিযিক ও বরকতের জন্য নবী ﷺ-এর শেখানো নির্বাচিত মাসনূন দোয়া সংকলন।</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <nav class="toc">
+          <a class="chip" href="#dua-9">1. দুশ্চিন্তা থেকে মুক্তির দোয়া</a>
+          <a class="chip" href="#dua-10">2. হাসবিয়াল্লাহু দোয়া</a>
+          <a class="chip" href="#dua-11">3. দোয়া ইউনুস</a>
+          <a class="chip" href="#dua-12">4. হালাল রিযিক ও ঋণমুক্তির দোয়া</a>
+          <a class="chip" href="#dua-13">5. রহমত ও সঠিক পথের দোয়া</a>
+          <a class="chip" href="#dua-14">6. রিযিক ও ঘরে বরকতের দোয়া</a>
+    </nav>
+
+      <article class="card" id="dua-9">
+        <header class="card-head">
+          <span class="num">1</span>
+          <div class="card-titles">
+            <h2 class="card-title">দুশ্চিন্তা থেকে মুক্তির দোয়া</h2>
+            <p class="card-sub">মাসনূন দোয়া • হাদিস</p>
+          </div>
+          <span class="card-ar">دُعَاءُ الْهَمِّ وَالْحَزَنِ</span>
+        </header>
+
+        <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+        <p class="arabic" dir="rtl" lang="ar">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْجُبْنِ وَالْبُخْلِ، وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ</p>
+
+        <div class="block">
+          <span class="label">উচ্চারণ</span>
+          <p class="ucchaaron">আল্লা-হুম্মা ইন্নী আ'ঊযু বিকা মিনাল হাম্মি ওয়াল হাযান, ওয়াল 'আজযি ওয়াল কাসাল, ওয়াল জুবনি ওয়াল বুখল, ওয়া দ্বালা'ইদ-দাইনি ওয়া গালাবাতির রিজাল।</p>
+        </div>
+
+        <div class="block">
+          <span class="label">অর্থ</span>
+          <p class="ortho">হে আল্লাহ! আমি আপনার কাছে আশ্রয় চাই দুশ্চিন্তা ও দুঃখ থেকে, অক্ষমতা ও অলসতা থেকে, ভীরুতা ও কৃপণতা থেকে, ঋণের ভার এবং মানুষের দ্বারা পরাভূত হওয়া থেকে।</p>
+        </div>
+
+        
+        <div class="block">
+          <span class="label">ব্যাখ্যা</span>
+          <p class="beyakkha">মানুষের ছয় জোড়া দুশ্চিন্তার উৎস থেকে একসাথে আশ্রয় প্রার্থনা — মানসিক, দৈহিক, চারিত্রিক ও আর্থিক সকল দুর্বলতা থেকে মুক্তির দোয়া।</p>
+        </div>
+
+        
+        <div class="fazilat">
+          <span class="label">ফযীলত</span>
+          <p>এটি নবী ﷺ-এর শেখানো একটি মাসনূন দোয়া। দুশ্চিন্তা, দুঃখ, অলসতা, ভীরুতা, কৃপণতা, ঋণের বোঝা ও মানুষের অত্যাচার থেকে রক্ষা পেতে এটি নিয়মিত পড়া সুন্নত। (বুখারি)</p>
+        </div>
+      </article>
+
+      <article class="card" id="dua-10">
+        <header class="card-head">
+          <span class="num">2</span>
+          <div class="card-titles">
+            <h2 class="card-title">হাসবিয়াল্লাহু দোয়া</h2>
+            <p class="card-sub">সূরা আত-তাওবা • আয়াত ১২৯</p>
+          </div>
+          <span class="card-ar">حَسْبِيَ اللَّهُ</span>
+        </header>
+
+        <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+        <p class="arabic" dir="rtl" lang="ar">حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ ۖ عَلَيْهِ تَوَكَّلْتُ ۖ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</p>
+
+        <div class="block">
+          <span class="label">উচ্চারণ</span>
+          <p class="ucchaaron">হাসবিয়াল্লা-হু লা- ইলা-হা ইল্লা- হুওয়া, 'আলাইহি তাওয়াক্কালতু ওয়া হুওয়া রাব্বুল 'আরশিল 'আযীম।</p>
+        </div>
+
+        <div class="block">
+          <span class="label">অর্থ</span>
+          <p class="ortho">আল্লাহই আমার জন্য যথেষ্ট, তিনি ছাড়া কোনো সত্য উপাস্য নেই। আমি তাঁরই উপর ভরসা করেছি এবং তিনিই মহান আরশের অধিপতি।</p>
+        </div>
+
+        
+        <div class="block">
+          <span class="label">ব্যাখ্যা</span>
+          <p class="beyakkha">এটি সূরা আত-তাওবার শেষ আয়াত (১২৯)। সম্পূর্ণ নির্ভরতা ও তাওয়াক্কুলের ঘোষণা — সকল দুশ্চিন্তায় আল্লাহকে যথেষ্ট মেনে নেওয়ার দোয়া।</p>
+        </div>
+
+        
+        <div class="fazilat">
+          <span class="label">ফযীলত</span>
+          <p>নবী ﷺ বলেছেন, যে ব্যক্তি সকাল ও সন্ধ্যায় সাতবার এই দোয়া পড়বে, আল্লাহ তার দুনিয়া ও আখিরাতের সকল দুশ্চিন্তার জন্য যথেষ্ট হয়ে যাবেন। (আবু দাউদ)</p>
+        </div>
+      </article>
+
+      <article class="card" id="dua-11">
+        <header class="card-head">
+          <span class="num">3</span>
+          <div class="card-titles">
+            <h2 class="card-title">দোয়া ইউনুস</h2>
+            <p class="card-sub">সূরা আল-আম্বিয়া • আয়াত ৮৭</p>
+          </div>
+          <span class="card-ar">دُعَاءُ يُونُسَ</span>
+        </header>
+
+        <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+        <p class="arabic" dir="rtl" lang="ar">لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ</p>
+
+        <div class="block">
+          <span class="label">উচ্চারণ</span>
+          <p class="ucchaaron">লা- ইলা-হা ইল্লা- আন্তা সুবহা-নাকা ইন্নী কুনতু মিনায-যা-লিমীন।</p>
+        </div>
+
+        <div class="block">
+          <span class="label">অর্থ</span>
+          <p class="ortho">হে আল্লাহ! আপনি ছাড়া কোনো উপাস্য নেই। আপনি পবিত্র ও মহিমান্বিত। নিশ্চয়ই আমি আমার নিজের প্রতি অন্যায়কারীদের অন্তর্ভুক্ত ছিলাম।</p>
+        </div>
+
+        
+        <div class="block">
+          <span class="label">ব্যাখ্যা</span>
+          <p class="beyakkha">এতে আল্লাহর একত্ব স্বীকার, তাঁর পবিত্রতা ঘোষণা এবং নিজের ভুল স্বীকার করে ক্ষমা প্রার্থনা — তিনটি বিষয় একসাথে রয়েছে, যা দোয়া কবুলের অন্যতম কারণ।</p>
+        </div>
+
+        
+        <div class="fazilat">
+          <span class="label">ফযীলত</span>
+          <p>মাছের পেটে থাকা অবস্থায় হযরত ইউনুস (আঃ) এই দোয়া পড়েছিলেন। নবী ﷺ বলেছেন, কোনো মুসলিম কোনো বিষয়ে এই দোয়া পড়লে আল্লাহ তার দোয়া কবুল করেন। বিপদ, দুশ্চিন্তা ও কষ্ট থেকে মুক্তির জন্য এটি পড়া হয়। (তিরমিজি)</p>
+        </div>
+      </article>
+
+      <article class="card" id="dua-12">
+        <header class="card-head">
+          <span class="num">4</span>
+          <div class="card-titles">
+            <h2 class="card-title">হালাল রিযিক ও ঋণমুক্তির দোয়া</h2>
+            <p class="card-sub">মাসনূন দোয়া • তিরমিজি</p>
+          </div>
+          <span class="card-ar">دُعَاءُ الْكِفَايَةِ</span>
+        </header>
+
+        <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+        <p class="arabic" dir="rtl" lang="ar">اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ</p>
+
+        <div class="block">
+          <span class="label">উচ্চারণ</span>
+          <p class="ucchaaron">আল্লাহুম্মাকফিনী বি-হালালিকা আন হারামিকা, ওয়া আগনিনী বি-ফাদলিকা আম্মান সিওয়াক।</p>
+        </div>
+
+        <div class="block">
+          <span class="label">অর্থ</span>
+          <p class="ortho">হে আল্লাহ! আপনার হালাল রিযিক দিয়ে আমাকে হারাম থেকে বাঁচিয়ে যথেষ্ট করে দিন, আর আপনার অনুগ্রহে আমাকে আপনি ছাড়া অন্য সবার থেকে অমুখাপেক্ষী করে দিন।</p>
+        </div>
+
+        
+        <div class="block">
+          <span class="label">ব্যাখ্যা</span>
+          <p class="beyakkha">দুটি চাওয়া একসাথে — হারাম উপার্জন থেকে হেফাজত এবং মানুষের মুখাপেক্ষী না হওয়া। রিযিকের বরকতের জন্য সবচেয়ে গুরুত্বপূর্ণ দোয়াগুলোর একটি।</p>
+        </div>
+
+        
+        <div class="fazilat">
+          <span class="label">ফযীলত</span>
+          <p>হযরত আলী (রা.)-কে এক ঋণগ্রস্ত ব্যক্তি সাহায্য চাইলে নবী ﷺ তাকে এই দোয়া শিখিয়ে বলেছিলেন — এই দোয়া পড়লে আল্লাহ পাহাড় সমান ঋণও পরিশোধের ব্যবস্থা করে দেন। হালাল রিযিক, ঋণমুক্তি ও মানুষের কাছে হাত না পাতার জন্য প্রতিদিন পড়ুন। (তিরমিজি ৩৫৬৩)</p>
+        </div>
+      </article>
+
+      <article class="card" id="dua-13">
+        <header class="card-head">
+          <span class="num">5</span>
+          <div class="card-titles">
+            <h2 class="card-title">রহমত ও সঠিক পথের দোয়া</h2>
+            <p class="card-sub">সূরা আল-কাহফ • আয়াত ১০</p>
+          </div>
+          <span class="card-ar">رَبَّنَا آتِنَا</span>
+        </header>
+
+        <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+        <p class="arabic" dir="rtl" lang="ar">رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا</p>
+
+        <div class="block">
+          <span class="label">উচ্চারণ</span>
+          <p class="ucchaaron">রাব্বানা আতিনা মিল্লাদুনকা রাহমাতাঁও ওয়া হাইয়্যি লানা মিন আমরিনা রাশাদা।</p>
+        </div>
+
+        <div class="block">
+          <span class="label">অর্থ</span>
+          <p class="ortho">হে আমাদের রব! আপনার পক্ষ থেকে আমাদের রহমত দান করুন এবং আমাদের কাজকর্ম সঠিকভাবে গুছিয়ে দিন।</p>
+        </div>
+
+        
+        <div class="block">
+          <span class="label">ব্যাখ্যা</span>
+          <p class="beyakkha">নিজের বুদ্ধির উপর ভরসা না করে আল্লাহর কাছে রহমত ও সঠিক পথনির্দেশ চাওয়ার দোয়া — চাকরি, বিয়ে, সফর বা যেকোনো দ্বিধায় পড়ুন।</p>
+        </div>
+
+        
+        <div class="fazilat">
+          <span class="label">ফযীলত</span>
+          <p>গুহাবাসী যুবকেরা (আসহাবে কাহফ) বিপদের মুখে আশ্রয় নিয়ে এই দোয়াটি করেছিলেন এবং আল্লাহ তাদের হেফাজত করেছিলেন। কোনো সিদ্ধান্ত নিতে দ্বিধা হলে, বিপদে পড়লে বা সঠিক পথ বুঝতে না পারলে এই দোয়া পড়া অত্যন্ত ফলপ্রসূ।</p>
+        </div>
+      </article>
+
+      <article class="card" id="dua-14">
+        <header class="card-head">
+          <span class="num">6</span>
+          <div class="card-titles">
+            <h2 class="card-title">রিযিক ও ঘরে বরকতের দোয়া</h2>
+            <p class="card-sub">মাসনূন দোয়া • সহীহ আল-জামি</p>
+          </div>
+          <span class="card-ar">دُعَاءُ الْبَرَكَةِ</span>
+        </header>
+
+        <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+        <p class="arabic" dir="rtl" lang="ar">اللَّهُمَّ اغْفِرْ لِي ذَنْبِي وَوَسِّعْ لِي فِي دَارِي وَبَارِكْ لِي فِي رِزْقِي</p>
+
+        <div class="block">
+          <span class="label">উচ্চারণ</span>
+          <p class="ucchaaron">আল্লাহুম্মাগফিরলী যামবী, ওয়া ওয়াস্‌সি লী ফী দারী, ওয়া বারিক লী ফী রিযকী।</p>
+        </div>
+
+        <div class="block">
+          <span class="label">অর্থ</span>
+          <p class="ortho">হে আল্লাহ! আমার গুনাহ ক্ষমা করে দিন, আমার ঘরে প্রশস্ততা দান করুন এবং আমার রিযিকে বরকত দিন।</p>
+        </div>
+
+        
+        <div class="block">
+          <span class="label">ব্যাখ্যা</span>
+          <p class="beyakkha">প্রথমে ক্ষমা, তারপর ঘর ও রিযিক — কারণ গুনাহ মাফ হলেই রিযিকে বরকত আসে। সংক্ষিপ্ত কিন্তু দুনিয়া-আখিরাতের কল্যাণে ভরা দোয়া।</p>
+        </div>
+
+        
+        <div class="fazilat">
+          <span class="label">ফযীলত</span>
+          <p>নবী ﷺ এই দোয়াটি নিয়মিত পড়তেন। এতে একসাথে তিনটি চাওয়া রয়েছে — গুনাহ মাফ, ঘরে প্রশস্ততা ও রিযিকে বরকত। সকাল-সন্ধ্যায় ও নামাজের পর পড়া যায়। (সহীহ আল-জামি আস-সাগীর ১/৩৯৯, হাদিস নং ১২৬৫)</p>
+        </div>
+      </article>
+
+    <footer>
+      <p><b>আমল</b> · দৈনিক কুরআন তিলাওয়াতের সঙ্গী</p>
+      <a class="top" href="#top">↑ উপরে ফিরুন</a>
+    </footer>
+  </div>
+</body>
+</html>
